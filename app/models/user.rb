@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  enum role_types: {trainee: 0, suppervisor: 1}
-  enum gender_types: {male: 1, female: 0}
+  enum role: {trainee: 0, supervisor: 1}
+  enum gender: {male: 1, female: 0}
 
   has_many :course_users, dependent: :destroy
   has_many :courses, through: :course_users
@@ -21,6 +21,7 @@ class User < ApplicationRecord
   has_secure_password
 
   scope :newest, ->{order id: :desc}
+  scope :order_role, ->{order role: :desc}
 
   class << self
     def role_types_i18n
