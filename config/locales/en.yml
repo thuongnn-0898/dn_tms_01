@@ -54,3 +54,5 @@ en:
     gender:
       male: "Male"
       female: "Female"
+    message:
+      user_not_default: "User doesn't exists!"
