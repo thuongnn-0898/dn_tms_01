@@ -1,0 +1,70 @@
+<% provide :title, t("page.User_list") %>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped verticalalign">
+      <h3><%= t "User_list" %></h3>
+      <div id="showmsg"></div>
+      <%= link_to t("page.user_create"), new_user_path, class: "btn btn-success" %>
+      <thead>
+      <tr>
+        <th><%= t "table.column.order" %></th>
+        <th><%= t "table.column.avatar" %></th>
+        <th><%= t "table.column.fullname" %></th>
+        <th><%= t "table.column.email" %></th>
+        <th><%= t "table.column.action" %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @users.each_with_index do |user, index| %>
+        <tr id="user_id<%= user.id %>">
+          <td scope="row"><strong><%= index + 1 %></strong></td>
+          <td>
+            <%= link_to image_tag(user.avatar.url, alt: user.fullname,
+              class: "img-circle avatar-size"), user %>
+          </td>
+          <td><%= link_to user.fullname, user %></td>
+          <td><%= user.email %></td>
+          <td class="action">
+            <%= link_to edit_user_path(user), class: "btn btn-warning" do %>
+              <i class="fa fa-edit"></i>
+            <% end %>
+            <button href="#myModal" class="btn btn-danger btn-remove"
+              data-id="<%= user.id %>" data-toggle="modal" >
+              <span class="fa fa-remove"></span>
+            </button>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <%= will_paginate %>
+  </div>
+</div>
+
+<div id="myModal" class="modal fade">
+  <div class="modal-dialog modal-confirm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="icon-box">
+          <i class="fa fa-remove"></i>
+        </div>
+        <h4 class="modal-title"><%= t "messages.destroy_confirm" %></h4>
+        <button type="button" class="close" data-dismiss="modal"
+          aria-hidden="true">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p><%= t "messages.delete_msg" %></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-dismiss="modal">
+          <%= t "ui_control_text_js.cancel" %>
+        </button>
+        <button type="button" id="btn-delete" class="btn btn-danger" >
+          <%= t "ui_control_text_js.delete" %>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<%= javascript_include_tag "user" %>

@@ -9,7 +9,7 @@ default: &default
 
 development:
   <<: *default
-  database: development_framgia_training
+  database: Project1
 test:
   <<: *default
   database: test_framgia_training

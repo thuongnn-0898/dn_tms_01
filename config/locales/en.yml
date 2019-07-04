@@ -1,16 +1,30 @@
 en:
+  date:
+    formats:
+      default: "%d-%m-%Y"
   title: "FRAMGIA TRAINING SYSTEM"
   session:
-    login: "Please sign in"
+    login: "Please login"
     btn: "Login"
     remember: "Remember me"
+    login_msg: "Wellcome back %{email}"
+    logout_msg: "See you agian"
+    login_fail: "Email or password wrong! please try agian"
+    placeholder_email: "Email address"
+    placeholder_pass: "Password"
   table:
+    course_name: "Course name"
+    duration: "Duration"
+    status: "Status"
+    date_start: "Date start"
+    date_end: "Date end"
     column:
       order: "#"
       avatar: "Avatar"
       fullname: "Full name"
       email: "Email"
       action: "Action"
+      role: "Role"
   page:
     home: "Home"
     courses: "All Course"
@@ -20,6 +34,9 @@ en:
     user_create: "Create new User"
     user_edit: "Edit an User"
     User_list: "User List"
+    user_page: "User page"
+    dropdown: "Menu"
+    close: "Close"
   messages:
     save_success: "Save successfully!"
     update_success: "Update successfully!"
@@ -45,12 +62,23 @@ en:
         birthday: "Birth of Date"
         gender: "Gender"
         avatar: "Avatar"
+        create: "Created at"
     submit:
       create: "Create an User"
   user:
+    status:
+      active: "ACTIVE"
+      pedding: "PEDDING"
+      finish: "FINISH"
+    trainee:
+      info: "Infomation"
+      list_course: "Course list is participating"
+      list_mem: "List Supervisor and member"
     role:
-      trainee: "Trainee"
-      suppervisor: "Suppervisor"
+      trainee: "TRAINEE"
+      suppervisor: "SUPERVISOR"
     gender:
       male: "Male"
       female: "Female"
+    message:
+      user_not_default: "User doesn't exists!"

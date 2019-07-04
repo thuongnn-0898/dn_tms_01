@@ -1,0 +1,31 @@
+<nav class="navbar navbar-default" id="head1">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%= link_to t("page.home"),root_path ,class: "navbar-brand" %>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><%= link_to t("page.courses"),nil%></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+        <li class="dropdown">
+          <%= link_to t("page.dropdown"),nil, class: "dropdown-toggle", data: {toggle: "dropdown"},role: "button",aria: {haspopup: true, explanded: false} %>
+          <ul class="dropdown-menu">
+            <li>
+              <%= link_to t("page.profile"), "#", data: { toggle: "modal", target: "#myModal"} %>
+            </li>
+            <li>
+              <%= link_to t("page.logout"), logout_path, method: :delete %>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <% else %>
+      <li class="active" >
+        <%= link_to t("page.login"),nil, data: {toggle: "modal", target: "#exampleMpdal"}%>
+      </li>
+      <% end %>
+    </div>
+  </div>
+</nav>

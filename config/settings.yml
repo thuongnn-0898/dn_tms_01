@@ -1,0 +1,12 @@
+fullname_length_maximum: 140
+email_length_minimum: 10
+email_length_maximum: 250
+password_length_minimum: 6
+minimagick_width: 300
+minimagick_height: 300
+start_year: 1900
+minimagick_width_thumb: 100
+minimagick_height_thumb: 100
+per_page_default: 10
+avatar_default: "user.png"
+

@@ -1,0 +1,54 @@
+<tr>
+  <th scope="row"><%= list_user.id %></th>
+  <td>
+    <%= link_to list_user.fullname, "#", data:
+    { toggle: "modal", target: "#myModal#{list_user.id}"} %>
+  </td>
+  <td><%= list_user.email %></td>
+  <td>
+    <% if list_user.role === "supervisor" %>
+    <span class="label label-danger"><%= t "user.role.suppervisor" %></span>
+    <% else %>
+    <span class="label label-default"><%= t "user.role.trainee" %></span>
+    <% end %>
+  </td>
+</tr>
+<div class="modal fade" id="myModal<%= list_user.id%>" tabindex="-1"
+  role="dialog" aria-labelledby="myModalLabel-<%= list_user.id%>"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close"
+        data-dismiss="modal" aria-hidden="true"></button>
+        <h4 class="modal-title" id="myModalLabel"><%= t "page.profile" %></h4>
+      </div>
+      <div class="modal-body">
+        <center>
+          <%= link_to image_tag(list_user.avatar.url, class: "img-circle avatar-size")%>
+          <h3 class="media-heading"><%= list_user.fullname %>
+            <small><%= list_user.role %></small></h3>
+          </center>
+          <center>
+            <h3><%= t "user.trainee.info" %></h3>
+            <span>
+              <p><%= t "helpers.label.user.gender" %>: <%= list_user.gender %></p>
+            </span>
+            <span>
+              <p>
+                <%= t "helpers.label.user.birthday" %>:
+                <%= l(list_user.birthday) %>
+              </p>
+            </span>
+          </center>
+        </div>
+        <div class="modal-footer">
+          <center>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
+              <%= t "page.close" %>
+            </button>
+          </center>
+        </div>
+      </div>
+    </div>
+  </div>
