@@ -1,0 +1,20 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password:
+  host: localhost
+  socket: /opt/lampp/var/mysql/mysql.sock
+
+development:
+  <<: *default
+  database: development_framgia_training
+test:
+  <<: *default
+  database: test_framgia_training
+production:
+  <<: *default
+  database: ProjectName_production
+  username: ProjectName
+  password: <%= ENV["PROJECTNAME_DATABASE_PASSWORD"] %>
