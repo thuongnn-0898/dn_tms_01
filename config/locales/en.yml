@@ -1,0 +1,56 @@
+en:
+  title: "FRAMGIA TRAINING SYSTEM"
+  session:
+    login: "Please sign in"
+    btn: "Login"
+    remember: "Remember me"
+  table:
+    column:
+      order: "#"
+      avatar: "Avatar"
+      fullname: "Full name"
+      email: "Email"
+      action: "Action"
+  page:
+    home: "Home"
+    courses: "All Course"
+    login: "Login"
+    profile: "Profile"
+    logout: "Logout"
+    user_create: "Create new User"
+    user_edit: "Edit an User"
+    User_list: "User List"
+  messages:
+    save_success: "Save successfully!"
+    update_success: "Update successfully!"
+    destroy_success: "Delete successfully!"
+    destroy_error: "Delete failed!"
+    destroy_confirm: "Are you sue?"
+    no_avatar: "No Avatar"
+    delete_msg: "Do you really want to delete this records? This process cannot be undone."
+    error:
+      one: "The form contains %{count} error."
+      other: "The form contains %{count} errors."
+  ui_control_text_js:
+    delete: "Delete"
+    cancel: "Cancel"
+  helpers:
+    label:
+      user:
+        email: "Email"
+        fullname: "Full name"
+        password: "Password"
+        password_confirmation: "Password Confirm"
+        role: "Role"
+        birthday: "Birth of Date"
+        gender: "Gender"
+        avatar: "Avatar"
+    submit:
+      create: "Create an User"
+  user:
+    role:
+      trainee: "Trainee"
+      suppervisor: "Suppervisor"
+    gender:
+      male: "Male"
+      female: "Female"
