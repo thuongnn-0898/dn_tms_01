@@ -3,12 +3,17 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
-  get "/home", to: "homes#index"
 
   scope :user do
+    get "/home", to: "homes#index"
+    get "/details_task", to: "subject_users#details_task"
+    patch "/finish_task", to: "progress_user_task#finish_task"
+    patch "/finish_subject", to: "subject_users#finish_subject"
     resources :course_users
   end
+
   resources :courses, only: [:index, :show]
+
   namespace :supervisors do
     resources :users
     resources :courses, except: :show

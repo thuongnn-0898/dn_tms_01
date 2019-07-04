@@ -24,4 +24,8 @@ module ApplicationHelper
     index += 1
     page.present? ? Settings.per_page_default * (page.to_i - 1) + index : index
   end
+
+  def finish_subj_user subject_user_id
+    SubjectUser.find_by(id: subject_user_id).update_attribute(:status, 2)
+  end
 end

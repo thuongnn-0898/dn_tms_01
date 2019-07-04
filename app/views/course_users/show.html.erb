@@ -14,28 +14,31 @@
     <p><b>Date end:</b> <%= l(@course_user.course.date_end, format: :short) %></p>
   </div>
 </div>
-<% @course_user.subject_users.each do |subject| %>
+<% @course_user.subject_users.each do |subject_user| %>
   <div class="container">
-    <div class="row vcenter">
+    <div class="row vcenter" id="<%= subject_user.id %>">
       <div class="col-md-2">
-      <%= image_tag subject.picture.url, class: "img-circle avatar-size" %>
+      <%= image_tag subject_user.picture.url, class: "img-circle avatar-size" %>
     </div>
-    <% if subject.studying? %>
+    <% if subject_user.studying? %>
       <div class="col-md-5">
         <div class="progress">
           <div class="progress-bar progress-bar-striped active" role="progressbar"
-            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:25%">
           </div>
         </div>
       </div>
       <div class="col-md-1">
           <span class="label label-primary">Styding</span>
       </div>
+      <div class="col-md-1" id="btn-finish<%= subject_user.id %>">
+        <button class="btn btn-danger finish_subject" id="<%= subject_user.id %>">Finish</button>
+      </div>
       <div class="col-md-1">
-        <button class="btn btn-danger">Finish</button>
+        <button class="btn btn-primary view-task" data-id="<%= subject_user.subject_id %>" id="<%= subject_user.id %>"><i class="fa fa-eye"></i> Tasks</button>
       </div>
     </div>
-    <% elsif subject.finish? %>
+    <% elsif subject_user.finish? %>
     <div class="col-md-5">
         <div class="progress">
           <div class="progress-bar progress-bar-danger active" role="progressbar"
@@ -45,6 +48,9 @@
       </div>
       <div class="col-md-1">
           <span class="label label-danger">Finish</span>
+      </div>
+      <div class="col-md-1">
+        <button class="btn btn-primary view-task" data-id="<%= subject_user.subject_id %>" id="<%= subject_user.id %>"><i class="fa fa-eye"></i> Tasks</button>
       </div>
     </div>
     <% else %>
@@ -58,6 +64,11 @@
       <div class="col-md-1">
           <span class="label label-warning">Pedding</span>
       </div>
+      <div class="col-md-1">
+        <button class="btn btn-primary view-task" data-id="<%= subject_user.subject_id %>" id="<%= subject_user.id %>"><i class="fa fa-eye"></i> Tasks</button>
+      </div>
     <% end %>
   </div>
 <% end %>
+<%= render "course_users/view-task" %>
+<%= javascript_include_tag "ajax_helper.js" %>
