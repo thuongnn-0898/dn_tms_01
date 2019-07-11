@@ -4,7 +4,7 @@ class CreateCourses < ActiveRecord::Migration[5.2]
       t.string :name
       t.text :description
       t.integer :duration
-      t.integer :duration_type, default: Course.status_types[:init]
+      t.integer :duration_type, default: 0
       t.string :picture
 
       t.timestamps

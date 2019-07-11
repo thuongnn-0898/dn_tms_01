@@ -3,7 +3,7 @@ class CreateProgressUserTasks < ActiveRecord::Migration[5.2]
     create_table :progress_user_tasks do |t|
       t.integer :subject_user_id
       t.integer :subject_task_id
-      t.integer :status, default: ProgressUserTask.status_types[:init]
+      t.integer :status
 
       t.timestamps
     end

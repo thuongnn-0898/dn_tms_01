@@ -1,3 +1,4 @@
 class Task < ApplicationRecord
-  has_many :subject_tasks, dependent: :destroy
+  belongs_to :subject
+  has_many :progress_user_tasks, dependent: :destroy
 end

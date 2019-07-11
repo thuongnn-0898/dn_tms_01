@@ -2,8 +2,8 @@ class User < ApplicationRecord
   enum role_types: {trainee: 0, suppervisor: 1}
   enum gender_types: {male: 1, female: 0}
 
-  has_many :course_users
-  has_many :course_subjects
+  has_many :course_users, dependent: :destroy
+  has_many :courses, through: :course_users
 
   validates :fullname, presence: true,
     length: {maximum: Settings.fullname_length_maximum}
