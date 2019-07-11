@@ -3,10 +3,10 @@ class CreateCourseUsers < ActiveRecord::Migration[5.2]
     create_table :course_users do |t|
       t.integer :user_id
       t.integer :course_id
-      t.integer :status, default: CourseUser.status_types[:init]
+      t.integer :status
       t.datetime :date_start
       t.datetime :date_end
-      t.integer :role, default: CourseUser.role_types[:trainee]
+      t.integer :role, default: 0
 
       t.timestamps
     end

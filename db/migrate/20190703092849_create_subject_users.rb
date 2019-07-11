@@ -3,7 +3,7 @@ class CreateSubjectUsers < ActiveRecord::Migration[5.2]
     create_table :subject_users do |t|
       t.integer :course_user_id
       t.integer :course_subject_id
-      t.integer :status, default: SubjectUser.status_types[:init]
+      t.integer :status, default: 0
 
       t.timestamps
     end

@@ -3,10 +3,10 @@ class CreateUsers < ActiveRecord::Migration[5.2]
     create_table :users do |t|
       t.string :email
       t.string :password_digest
-      t.integer :role, default: User.role_types[:trainee]
+      t.integer :role, default: 0
       t.string :fullname
       t.date :birthday
-      t.integer :gender, default: User.gender_types[:male]
+      t.integer :gender, default: 1
       t.string :avatar
 
       t.timestamps
