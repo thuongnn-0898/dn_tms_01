@@ -3,7 +3,8 @@
 Rails.application.routes.draw do
   root "users#index"
 
-  scope :supervisor do
+  namespace :supervisors do
     resources :users
+    resources :courses, except: :show
   end
 end

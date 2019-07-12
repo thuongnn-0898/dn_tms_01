@@ -1,0 +1,73 @@
+<% provide :title, t("page.course_list") %>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped verticalalign">
+      <h3><%= t "page.course_list" %></h3>
+      <div id="showmsg"></div>
+      <%= link_to fa_icon("plus", text: t("page.course_create")), new_supervisors_course_path, data: { turbolinks: false } , class: "btn btn-success" %>
+      <thead>
+      <tr>
+        <th><%= t "table.column.order" %></th>
+        <th><%= t "table.column.picture" %></th>
+        <th><%= t "table.column.name" %></th>
+        <th><%= t "table.column.status" %></th>
+        <th><%= t "table.column.action" %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @courses.each_with_index do |course, index| %>
+        <tr id="data-row-id-<%= course.id %>">
+          <td scope="row"><strong><%= index_number index, params[:page] %></strong></td>
+          <td>
+            <%= link_to image_tag(course.picture.url, alt: course.name, data: { turbolinks: false },
+            class: "img-circle avatar-size"), edit_supervisors_course_path(course) %>
+          </td>
+          <td><%= link_to course.name, edit_supervisors_course_path(course), data: { turbolinks: false } %></td>
+          <td>
+            <span class="label label-<%= fill_course_status_color course %>"><%= course.status.to_s.upcase %></span>
+          </td>
+          <td>
+            <%= link_to edit_supervisors_course_path(course), data: { turbolinks: false }, class: "btn btn-warning" do %>
+              <i class="fa fa-edit"></i>
+            <% end %>
+            <button href="#myModal" class="btn btn-danger btn-load-modal"
+              data-id="<%= course.id %>" data-toggle="modal">
+              <span class="fa fa-remove"></span>
+            </button>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <%= will_paginate %>
+  </div>
+</div>
+
+<div id="myModal" class="modal fade">
+  <div class="modal-dialog modal-confirm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="icon-box">
+          <i class="fa fa-remove"></i>
+        </div>
+        <h4 class="modal-title"><%= t "messages.destroy_confirm" %></h4>
+        <button type="button" class="close" data-dismiss="modal"
+          aria-hidden="true">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p><%= t "messages.delete_msg" %></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-dismiss="modal">
+          <%= t "ui_control_text_js.cancel" %>
+        </button>
+        <button type="button" id="btn-delete" class="btn btn-danger">
+          <%= t "ui_control_text_js.delete" %>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag "ajax_helper" %>

@@ -11,6 +11,9 @@ en:
       fullname: "Full name"
       email: "Email"
       action: "Action"
+      name: "Name"
+      picture: "Picture"
+      status: "Status"
   page:
     home: "Home"
     courses: "All Course"
@@ -18,8 +21,17 @@ en:
     profile: "Profile"
     logout: "Logout"
     user_create: "Create new User"
+    task_create: "Create new Task"
+    subject_create: "Create new Subject"
+    course_create: "Create new Course"
     user_edit: "Edit an User"
+    course_edit: "Edit a Course"
+    subject_edit: "Edit an Subject"
     User_list: "User List"
+    task_list: "Task List"
+    course_list: "Course List"
+    subject_list: "Subject List"
+    task_edit: "Edit a Task"
   messages:
     save_success: "Save successfully!"
     update_success: "Update successfully!"
@@ -27,7 +39,9 @@ en:
     destroy_error: "Delete failed!"
     destroy_confirm: "Are you sue?"
     no_avatar: "No Avatar"
+    no_picture: "No Picture"
     delete_msg: "Do you really want to delete this records? This process cannot be undone."
+    course_not_found: "This Course doesn't exists"
     error:
       one: "The form contains %{count} error."
       other: "The form contains %{count} errors."
@@ -45,8 +59,18 @@ en:
         birthday: "Birth of Date"
         gender: "Gender"
         avatar: "Avatar"
+      task:
+        name: "Name"
+      subject:
+        name: "Name"
+        description: "Description"
+        picture: "Picture"
+      course:
+        course_subjects: "Subject(s)"
     submit:
-      create: "Create an User"
+      create: "Create"
+      submit: "Save"
+      update: "Update"
   user:
     role:
       trainee: "Trainee"
@@ -54,5 +78,20 @@ en:
     gender:
       male: "Male"
       female: "Female"
-    message:
-      user_not_default: "User doesn't exists!"
+  course:
+    duration_type:
+      hour: "Hour"
+      day: "Day"
+      month: "Moth"
+    status:
+      init: "Init"
+      start: "Start"
+      finish: "Finish"
+  activerecord:
+    errors:
+      models:
+        course:
+          attributes:
+            course_subjects:
+              course_subjects_too_short: "Course should have at least %{count} Subject(s)"
+              course_subjects_duplicate_subject: "Subject must be unique"

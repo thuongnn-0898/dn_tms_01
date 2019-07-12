@@ -1,0 +1,12 @@
+<% provide :title, t("page.course_edit") %>
+<%= stylesheet_link_tag "course" %>
+
+<div class="row">
+  <h1 class="text-center"><%= t("page.course_edit") %></h1>
+  <div class="col-md-6 col-md-offset-3">
+    <%= render "supervisors/courses/form" %>
+  </div>
+</div>
+
+<%= javascript_include_tag "course" %>
+<%= javascript_include_tag "custom" %>

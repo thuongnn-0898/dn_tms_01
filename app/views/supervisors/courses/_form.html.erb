@@ -1,0 +1,61 @@
+<%= form_for [:supervisors, @course] do |f| %>
+  <div class="image-upload col-md-2 col-md-offset-4">
+    <div class="image-edit">
+      <%= f.file_field :picture, class: "form-control",
+        accept: Settings.images_types.collect {|type| ".#{type},"} %>
+      <label for="course_picture"></label>
+    </div>
+    <div class="picture-preview">
+      <div id="picture-preview" style="background-image: url('<%= f.object.picture.url %>')">
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+    <%= display_error :name %>
+  </div>
+  <div class="col-md-6">
+    <%= f.label :duration_type %>
+    <%= f.select :duration_type, Course.duration_types_i18n, {},
+      {class: "form-control"} %>
+  </div>
+  <div class="col-md-6">
+    <%= f.label :duration %>
+    <%= f.text_field :duration, class: "form-control", type: "number" %>
+    <%= display_error :duration %>
+  </div>
+  <div class="col-md-12">
+    <%= f.label :status %>
+    <%= f.select :status, Course.status_i18n, {},
+      {class: "form-control", disabled: active_course_status} %>
+  </div>
+  <div class="col-md-12">
+    <%= f.label :description %>
+    <%= f.text_area :description, cols: 30, rows: 4, class: "form-control" %>
+    <%= display_error :description %>
+  </div>
+  <div class="col-md-12">
+    <div class="course-subjects">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <strong class="panel-title">
+            <%= t "helpers.label.course.course_subjects" %>
+          </strong>
+          <%= link_to_add_row fa_icon("plus-circle", text: ""), f,
+            :course_subjects, class: "btn btn-add-task" %>
+        </div>
+        <div class="panel-body">
+          <%= display_error :course_subjects, "" %>
+          <%= f.fields_for :course_subjects do |cs| %>
+            <%= render "supervisors/courses/course_subject", f: cs %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3 col-md-offset-4 form-group">
+    <%= f.submit class: "form-control btn btn-success" %>
+  </div>
+<% end %>
