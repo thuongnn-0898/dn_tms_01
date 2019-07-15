@@ -1,0 +1,16 @@
+<% provide(:title, t("page.user_page")) %>
+<div class="row ">
+  <%= render :partial => "courses/subject", :collection => @subjects %>
+  <div class="hover_bkgr_fricc">
+    <span class="helper"></span>
+    <div class="panel panel-primary">
+      <div class="panel panel-heading">
+        List task
+      </div>
+      <div class="panel panel-body" id="list-task">
+        asd
+      </div>
+    </div>
+</div>
+</div>
+<%= javascript_include_tag "ajax_helper.js" %>

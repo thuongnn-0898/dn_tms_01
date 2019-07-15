@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :courses, only: [:index, :show]
+  get "/detail_tasks", to: "tasks#show"
 
   namespace :supervisors do
     resources :users

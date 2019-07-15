@@ -1,5 +1,5 @@
 <tr>
-  <td><%= course.name %></td>
+  <td><%= link_to course.name, course_path(course) %></td>
   <td><%= course.description %></td>
   <td><%= course.duration %> <%= course.duration_type %></td>
   <td><%= image_tag course.picture.url, class: "images-circle avatar-size" %></td>

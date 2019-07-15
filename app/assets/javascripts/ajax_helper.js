@@ -126,5 +126,35 @@ $(document).ready(function(){
       message("Please try again later!");
     });
   }, 3000);
-  })
+  });
+
+
+
+  $(".view-subject-task").click(function(){
+   $('.hover_bkgr_fricc').show();
+  });
+  $('.hover_bkgr_fricc').click(function(){
+    $('.hover_bkgr_fricc').hide();
+  });
+  $('.popupCloseButton').click(function(){
+    $('.hover_bkgr_fricc').hide();
+  });
+
+  $('.view-subject-task').click(function(){
+    let subject_id = $(this).attr('id');
+    let html = '';
+    $.ajax({
+      method : 'GET',
+      dataType : 'JSON',
+      data : {
+        subject_id : subject_id,
+      },url : '/detail_tasks',
+      success: (data) => {
+        data.forEach((task) => {
+          html += '<span class="label label-warning">'+task.name+'</span><br />';
+        });
+        $('#list-task').html(html);
+      }
+    });
+  });
 });

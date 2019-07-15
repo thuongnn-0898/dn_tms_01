@@ -1,0 +1,15 @@
+<div class="col-md-4 view-subject-task" id="<%= subject.id %>">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= link_to subject.name %></h3>
+    </div>
+    <div class="panel-body">
+      <div class="col-md-5">
+        <%= image_tag subject.picture.url, class: "images-circle avatar-size" %>
+      </div>
+      <div class="col-md-7">
+      <p><%= subject.description %></p>
+    </div>
+    </div>
+  </div>
+</div>
