@@ -2,6 +2,6 @@ MAIL_SENDER: "Framgia_Traning_System"
 MAIL_DRIVE: "smtp"
 MAIL_HOST: "smtp.gmail.com"
 MAIL_PORT: 587
-MAIL_USERNAME: ""
+MAIL_USERNAME: "root"
 MAIL_PASSWORD: ""
 MAIL_PROTOCOL: "http"

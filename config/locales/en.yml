@@ -1,10 +1,23 @@
 en:
+  date:
+    formats:
+      default: "%d-%m-%Y"
   title: "FRAMGIA TRAINING SYSTEM"
   session:
-    login: "Please sign in"
+    login: "Please login"
     btn: "Login"
     remember: "Remember me"
+    login_msg: "Wellcome back %{email}"
+    logout_msg: "See you agian"
+    login_fail: "Email or password wrong! please try agian"
+    placeholder_email: "Email address"
+    placeholder_pass: "Password"
   table:
+    course_name: "Course name"
+    duration: "Duration"
+    status: "Status"
+    date_start: "Date start"
+    date_end: "Date end"
     column:
       order: "#"
       avatar: "Avatar"
@@ -14,6 +27,7 @@ en:
       name: "Name"
       picture: "Picture"
       status: "Status"
+      role: "Role"
   page:
     home: "Home"
     courses: "All Course"
@@ -32,6 +46,9 @@ en:
     course_list: "Course List"
     subject_list: "Subject List"
     task_edit: "Edit a Task"
+    user_page: "User page"
+    dropdown: "Menu"
+    close: "Close"
   messages:
     save_success: "Save successfully!"
     update_success: "Update successfully!"
@@ -67,14 +84,23 @@ en:
         picture: "Picture"
       course:
         course_subjects: "Subject(s)"
+        create: "Created at"
     submit:
       create: "Create"
       submit: "Save"
       update: "Update"
   user:
+    status:
+      active: "ACTIVE"
+      pedding: "PEDDING"
+      finish: "FINISH"
+    trainee:
+      info: "Infomation"
+      list_course: "Course list is participating"
+      list_mem: "List Supervisor and member"
     role:
-      trainee: "Trainee"
-      suppervisor: "Suppervisor"
+      trainee: "TRAINEE"
+      supervisor: "SUPERVISOR"
     gender:
       male: "Male"
       female: "Female"

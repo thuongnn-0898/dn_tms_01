@@ -5,7 +5,7 @@
     <table class="table table-striped verticalalign">
       <h3><%= t "User_list" %></h3>
       <div id="showmsg"></div>
-      <%= link_to t("page.user_create"), new_user_path, class: "btn btn-success" %>
+      <%= link_to t("page.user_create"),  new_supervisors_user_path, class: "btn btn-success" %>
       <thead>
       <tr>
         <th><%= t "table.column.order" %></th>
@@ -21,12 +21,12 @@
           <td scope="row"><strong><%= index + 1 %></strong></td>
           <td>
             <%= link_to image_tag(user.avatar.url, alt: user.fullname,
-              class: "img-circle avatar-size"), user %>
+              class: "img-circle avatar-size"), edit_supervisors_user_path(user) %>
           </td>
-          <td><%= link_to user.fullname, user %></td>
+          <td><%= link_to user.fullname, edit_supervisors_user_path(user) %></td>
           <td><%= user.email %></td>
           <td class="action">
-            <%= link_to edit_user_path(user), class: "btn btn-warning" do %>
+            <%= link_to edit_supervisors_user_path(user), class: "btn btn-warning" do %>
               <i class="fa fa-edit"></i>
             <% end %>
             <button href="#myModal" class="btn btn-danger btn-remove"
@@ -67,4 +67,3 @@
     </div>
   </div>
 </div>
-<%= javascript_include_tag "user" %>
