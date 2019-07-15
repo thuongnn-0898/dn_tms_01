@@ -23,7 +23,7 @@
       </thead>
       <tbody class="trainees-data-tables">
       <%= f.fields_for :course_users do |course_user| %>
-        <% if course_user.object.supervisor? %>
+        <% if course_user.object.role == User.roles[:supervisor] %>
         <%= render "supervisors/supervisors/course_user", f: course_user %>
         <% end %>
       <% end %>
