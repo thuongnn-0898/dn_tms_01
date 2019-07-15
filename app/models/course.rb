@@ -25,6 +25,7 @@ class Course < ApplicationRecord
 
   # Custom validates
   validate do
+    check_dates_vaid
     check_number_of_course_subject
     check_duplicate_of_course_subject
   end
@@ -38,16 +39,24 @@ class Course < ApplicationRecord
   class << self
     def duration_type_i18n
       Hash[
-        Course.duration_types.map{|k| [I18n.t("course.duration_type.#{k}"), k]}
+        Course.duration_types.map{|k, v| [I18n.t("course.duration_type.#{k}"), k]}
       ]
     end
 
     def status_i18n
-      Hash[Course.statuses.map{|k| [I18n.t("course.status.#{k}"), k]}]
+      Hash[Course.statuses.map{|k, v| [I18n.t("course.status.#{k}"), k]}]
     end
   end
 
   private
+
+  def check_dates_vaid
+    if date_start < Date.today
+      errors.add(:date_start, :date_start_must_be_large_than_today)
+    elsif date_end < date_start
+      errors.add(:date_end, :date_end_must_be_equal_large_than_date_start)
+    end
+  end
 
   def course_subject_count_valid?
     course_subjects.reject(&:marked_for_destruction?).count >= 1

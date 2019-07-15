@@ -2,6 +2,8 @@
   name = Faker::Educator.subject
   description = Faker::Lorem.character
   Subject.create! name: name, description: description
+end
+
 15.times do |n|
   email = "thuong#{n+1}@fpt.edu.vn"
   password = "123123"

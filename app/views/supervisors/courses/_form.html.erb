@@ -32,6 +32,16 @@
       {class: "form-control", disabled: active_course_status} %>
   </div>
   <div class="col-md-12">
+    <%= f.label :date_start %>
+    <%= f.date_select :date_start, {class: "form-control"} %>
+    <%= display_error :date_start, "" %>
+  </div>
+  <div class="col-md-12">
+    <%= f.label :date_end %>
+    <%= f.date_select :date_end, {class: "form-control"} %>
+    <%= display_error :date_end, "" %>
+  </div>
+  <div class="col-md-12">
     <%= f.label :description %>
     <%= f.text_area :description, cols: 30, rows: 4, class: "form-control" %>
     <%= display_error :description %>

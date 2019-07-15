@@ -1,11 +1,13 @@
 class Supervisors::CoursesController < ApplicationController
-  before_action :load_course, only: %i(edit update destroy)
+  before_action :load_course, only: %i(edit update destroy show)
   before_action :load_subjects, except: %i(index destroy show)
 
   def index
     @courses = Course.newest.paginate page: params[:page],
       per_page: Settings.per_page_default
   end
+
+  def show; end
 
   def new
     @course = Course.new
@@ -45,7 +47,7 @@ class Supervisors::CoursesController < ApplicationController
 
   def course_params
     params.require(:course).permit :name, :description, :duration,
-      :duration_type, :picture, :status,
+      :duration_type, :picture, :status, :date_start, :date_end,
       course_subjects_attributes: [:id, :course_id, :subject_id,
         :status, :_destroy]
   end

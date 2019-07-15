@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   namespace :supervisors do
     resources :users
     resources :trainees
-    resources :courses, except: :show
+    resources :courses
   end
 end

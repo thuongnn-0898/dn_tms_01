@@ -1,0 +1,69 @@
+<table border="1">
+  <tr>
+    <td></td>
+    <td>
+      <%= image_tag @course.picture.url,alt: @course.name, class: "img-circle avatar-size" %>
+    </td>
+  </tr>
+  <tr>
+    <td>Name</td>
+    <td><%= @course.name %></td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td><%= @course.status.capitalize %></td>
+  </tr>
+  <tr>
+    <td>Duration</td>
+    <td><%= @course.duration %> (<%= @course.duration_type %>)</td>
+  </tr>
+  <tr>
+    <td>Date Start</td>
+    <td><%= l @course.date_start, format: :default %></td>
+  </tr>
+  <tr>
+    <td>Date End</td>
+    <td><%= l @course.date_end, format: :default %></td>
+  </tr>
+</table>
+
+<ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#home">Description</a></li>
+  <li><a data-toggle="tab" href="#menu1">Subjects</a></li>
+  <li><a data-toggle="tab" href="#menu2">Trainees</a></li>
+  <li><a data-toggle="tab" href="#menu3">Supervisors</a></li>
+</ul>
+
+<div class="tab-content">
+  <div id="home" class="tab-pane fade in active">
+    <%= @course.description %>
+  </div>
+  <div id="menu1" class="tab-pane fade">
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>ten</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @course.course_subjects.each_with_index do |data, index| %>
+      <tr>
+        <td><%= index+1 %></td>
+        <td><%= data.subject.name %></td>
+      </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div id="menu2" class="tab-pane fade">
+    <% @course.trainees.each do |item| %>
+        <p>af </p>
+    <% end %>
+  </div>
+  <div id="menu3" class="tab-pane fade">
+    <h3>Menu 2</h3>
+    <p>Some content in menu 2.</p>
+  </div>
+</div>
+
