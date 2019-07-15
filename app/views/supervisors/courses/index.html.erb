@@ -5,7 +5,9 @@
     <table class="table table-striped verticalalign">
       <h3><%= t "page.course_list" %></h3>
       <div id="showmsg"></div>
-      <%= link_to fa_icon("plus", text: t("page.course_create")), new_supervisors_course_path, data: { turbolinks: false } , class: "btn btn-success" %>
+      <%= link_to fa_icon("plus", text: t("page.course_create")),
+        new_supervisors_course_path, data: { turbolinks: false } ,
+        class: "btn btn-success" %>
       <thead>
       <tr>
         <th><%= t "table.column.order" %></th>
@@ -18,19 +20,28 @@
       <tbody>
       <% @courses.each_with_index do |course, index| %>
         <tr id="data-row-id-<%= course.id %>">
-          <td scope="row"><strong><%= index_number index, params[:page] %></strong></td>
-          <td>
-            <%= link_to image_tag(course.picture.url, alt: course.name, data: { turbolinks: false },
-            class: "img-circle avatar-size"), edit_supervisors_course_path(course) %>
-          </td>
-          <td><%= link_to course.name, edit_supervisors_course_path(course), data: { turbolinks: false } %></td>
-          <td>
-            <span class="label label-<%= fill_course_status_color course %>"><%= course.status.to_s.upcase %></span>
+          <td scope="row">
+            <strong><%= index_number index, params[:page] %></strong>
           </td>
           <td>
-            <%= link_to edit_supervisors_course_path(course), data: { turbolinks: false }, class: "btn btn-warning" do %>
-              <i class="fa fa-edit"></i>
-            <% end %>
+            <%= link_to image_tag(course.picture.url, alt: course.name,
+              data: { turbolinks: false }, class: "img-circle avatar-size"),
+              edit_supervisors_course_path(course) %>
+          </td>
+          <td>
+            <%= link_to course.name, edit_supervisors_course_path(course),
+              data: { turbolinks: false } %>
+          </td>
+          <td>
+            <span class="label label-<%= fill_course_status_color course %>">
+              <%= course.status.upcase %>
+            </span>
+          </td>
+          <td>
+            <%= link_to fa_icon("edit"), edit_supervisors_course_path(course),
+              data: { turbolinks: false }, class: "btn btn-warning"%>
+            <%= link_to fa_icon("group"), edit_supervisors_trainee_path(course),
+              data: { turbolinks: false }, class: "btn btn-warning" %>
             <button href="#myModal" class="btn btn-danger btn-load-modal"
               data-id="<%= course.id %>" data-toggle="modal">
               <span class="fa fa-remove"></span>
@@ -70,4 +81,4 @@
   </div>
 </div>
 
-<%= javascript_include_tag "ajax_helper" %>
+<%= javascript_include_tag "supervisors/ajax_helper" %>

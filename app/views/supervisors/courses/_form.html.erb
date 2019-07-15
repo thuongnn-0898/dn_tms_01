@@ -6,7 +6,8 @@
       <label for="course_picture"></label>
     </div>
     <div class="picture-preview">
-      <div id="picture-preview" style="background-image: url('<%= f.object.picture.url %>')">
+      <div id="picture-preview"
+        style="background-image: url('<%= f.object.picture.url %>')">
       </div>
     </div>
   </div>
@@ -17,7 +18,7 @@
   </div>
   <div class="col-md-6">
     <%= f.label :duration_type %>
-    <%= f.select :duration_type, Course.duration_types_i18n, {},
+    <%= f.select :duration_type, Course.duration_type_i18n, {},
       {class: "form-control"} %>
   </div>
   <div class="col-md-6">

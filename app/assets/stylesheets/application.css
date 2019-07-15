@@ -2,4 +2,5 @@
  *= require custom.scss
  *= require font-awesome
  *= require select2
+ *= require dataTables/jquery.dataTables
  */

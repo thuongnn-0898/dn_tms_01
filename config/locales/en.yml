@@ -14,6 +14,8 @@ en:
       name: "Name"
       picture: "Picture"
       status: "Status"
+      birthday: "Birthday"
+      gender: "Gender"
   page:
     home: "Home"
     courses: "All Course"
@@ -26,6 +28,7 @@ en:
     course_create: "Create new Course"
     user_edit: "Edit an User"
     course_edit: "Edit a Course"
+    assign_trainee: "Assign Trainee"
     subject_edit: "Edit an Subject"
     User_list: "User List"
     task_list: "Task List"
@@ -34,6 +37,7 @@ en:
     task_edit: "Edit a Task"
   messages:
     save_success: "Save successfully!"
+    save_unsuccess: "Save Unsuccessful!"
     update_success: "Update successfully!"
     destroy_success: "Delete successfully!"
     destroy_error: "Delete failed!"
@@ -48,6 +52,9 @@ en:
   ui_control_text_js:
     delete: "Delete"
     cancel: "Cancel"
+  date:
+    formats:
+      default: "%d-%m-%Y"
   helpers:
     label:
       user:
@@ -71,10 +78,13 @@ en:
       create: "Create"
       submit: "Save"
       update: "Update"
+    button:
+      close: "Close"
+      assign: "Assign"
   user:
     role:
       trainee: "Trainee"
-      suppervisor: "Suppervisor"
+      supervisor: "Supervisor"
     gender:
       male: "Male"
       female: "Female"
