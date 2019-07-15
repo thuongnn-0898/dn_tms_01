@@ -10,10 +10,13 @@
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
         <li class="dropdown">
-          <%= link_to t("page.dropdown"),nil, class: "dropdown-toggle", data: {toggle: "dropdown"},role: "button",aria: {haspopup: true, explanded: false} %>
+          <%= link_to t("page.dropdown"),nil, class: "dropdown-toggle",
+            data: {toggle: "dropdown"},role: "button",
+            aria: {haspopup: true, explanded: false} %>
           <ul class="dropdown-menu">
             <li>
-              <%= link_to t("page.profile"), "#", data: { toggle: "modal", target: "#myModal"} %>
+              <%= link_to t("page.profile"), "#",
+                data: { toggle: "modal", target: "#myModal"} %>
             </li>
             <li>
               <%= link_to t("page.logout"), logout_path, method: :delete %>
@@ -23,7 +26,8 @@
       </ul>
       <% else %>
       <li class="active" >
-        <%= link_to t("page.login"),nil, data: {toggle: "modal", target: "#exampleMpdal"}%>
+        <%= link_to t("page.login"),nil, data: {toggle: "modal",
+          target: "#exampleMpdal"}%>
       </li>
       <% end %>
     </div>

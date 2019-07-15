@@ -25,14 +25,16 @@
       </div>
       <div class="modal-body">
         <center>
-          <%= link_to image_tag(user.avatar.url, class: "img-circle avatar-size")%>
+          <%= link_to image_tag(user.avatar.url,
+            class: "img-circle avatar-size")%>
           <h3 class="media-heading"><%= user.fullname %>
             <small><%= t"user.role.#{user.role}" %></small></h3>
           </center>
           <center>
             <h3><%= t "user.trainee.info" %></h3>
             <span>
-              <p><%= t "helpers.label.user.gender" %>: <%= t"user.gender.#{user.gender}" %></p>
+              <p><%= t "helpers.label.user.gender" %>:
+                <%= t"user.gender.#{user.gender}" %></p>
             </span>
             <span>
               <p>

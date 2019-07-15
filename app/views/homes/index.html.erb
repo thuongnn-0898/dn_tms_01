@@ -82,7 +82,8 @@ aria-labelledby="myModalLabel" aria-hidden="true">
     </div>
     <div class="modal-body">
       <center>
-        <%= image_tag current_user.avatar.url, class: "img-circle profile_image" %>
+        <%= image_tag current_user.avatar.url,
+          class: "img-circle profile_image" %>
         <h3 class="media-heading"><%= current_user.fullname %>
           <small><%= t "user.role.#{current_user.role}" %></small></h3>
         </center>
