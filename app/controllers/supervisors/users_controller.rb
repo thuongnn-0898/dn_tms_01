@@ -1,5 +1,6 @@
 class Supervisors::UsersController < ApplicationController
   before_action :load_user, only: %i(edit update destroy)
+  before_action :is_supervisor?
 
   def index
     @users = User.newest.paginate page: params[:page],

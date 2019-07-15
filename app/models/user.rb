@@ -29,6 +29,7 @@ class User < ApplicationRecord
   scope :newest, ->{order id: :desc}
   scope :trainees, ->{where role: User.roles[:trainee]}
   scope :supervisors, ->{where role: User.roles[:supervisor]}
+  scope :order_role, ->{order role: :desc}
 
   class << self
     def role_types_i18n
