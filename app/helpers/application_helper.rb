@@ -22,4 +22,15 @@ module ApplicationHelper
     index += 1
     page.present? ? Settings.per_page_default * (page.to_i - 1) + index : index
   end
+
+  def display_gender gender
+    if gender.male?
+      "fa-male"
+    elsif gender.female?
+      "fa-female"
+    else
+      "fa-male"
+    end
+  end
+
 end

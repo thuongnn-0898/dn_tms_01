@@ -7,4 +7,4 @@
 //= require i18n.js
 //= require i18n/translations
 //= require select2
-
+//= require dataTables/jquery.dataTables

@@ -28,6 +28,8 @@
             <span class="label label-<%= fill_course_status_color course %>"><%= course.status.to_s.upcase %></span>
           </td>
           <td>
+            <%= link_to fa_icon("user"), edit_supervisors_supervisor_path(course),
+                        data: { turbolinks: false }, class: "btn btn-warning" %>
             <%= link_to edit_supervisors_course_path(course), data: { turbolinks: false }, class: "btn btn-warning" do %>
               <i class="fa fa-edit"></i>
             <% end %>
@@ -70,4 +72,4 @@
   </div>
 </div>
 
-<%= javascript_include_tag "ajax_helper" %>
+<%= javascript_include_tag "supervisors/ajax_helper" %>

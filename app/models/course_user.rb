@@ -1,6 +1,8 @@
 class CourseUser < ApplicationRecord
-  enum role_types: {trainee: 0, suppervisor: 1}
+  # Enums
+  enum role: {trainee: 0, supervisor: 1}
 
+  # Relationships
   belongs_to :user
   belongs_to :course
   has_many :subject_users, dependent: :destroy
