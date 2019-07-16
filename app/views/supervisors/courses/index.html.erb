@@ -42,6 +42,8 @@
               data: { turbolinks: false }, class: "btn btn-warning"%>
             <%= link_to fa_icon("group"), edit_supervisors_trainee_path(course),
               data: { turbolinks: false }, class: "btn btn-warning" %>
+            <%= link_to fa_icon("user"), edit_supervisors_supervisor_path(course),
+                        data: { turbolinks: false }, class: "btn btn-warning" %>
             <button href="#myModal" class="btn btn-danger btn-load-modal"
               data-id="<%= course.id %>" data-toggle="modal">
               <span class="fa fa-remove"></span>

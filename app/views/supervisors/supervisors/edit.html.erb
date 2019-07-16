@@ -1,10 +1,10 @@
-<% provide :title, t("page.assign_trainee") %>
-<%= stylesheet_link_tag "supervisors/trainees" %>
+<% provide :title, t("page.assign_supervisor") %>
+<%= stylesheet_link_tag "supervisors/supervisors" %>
 
 <div class="row">
-  <h1 class="text-center"><%= t("page.assign_trainee") %></h1>
+  <h1 class="text-center"><%= t("page.assign_supervisor") %></h1>
   <%= form_for [:supervisors, @course],
-    url: supervisors_trainee_path(@course) do |f| %>
+    url: supervisors_supervisor_path(@course) do |f| %>
     <%= link_to fa_icon("check" ,text: t("page.assign_trainee")), "#",
       class: "btn btn-default btn-add-task",
       data: {toggle: "modal", target: ".bs-example-modal-lg"} %>
@@ -23,8 +23,9 @@
       </thead>
       <tbody class="trainees-data-tables">
       <%= f.fields_for :course_users do |course_user| %>
-        <% if course_user.object.trainee? %>
-          <%= render "supervisors/trainees/course_user", f: course_user %>
+        <%# if course_user.object.role == User.roles[:supervisor] %>
+        <% if course_user.object.supervisor? %>
+          <%= render "supervisors/supervisors/course_user", f: course_user %>
         <% end %>
       <% end %>
       </tbody>
@@ -87,4 +88,4 @@
 </div>
 
 <%= javascript_include_tag "supervisors/custom.js" %>
-<%= javascript_include_tag "supervisors/trainees.js" %>
+<%= javascript_include_tag "supervisors/supervisors.js" %>

@@ -1,7 +1,9 @@
-class Supervisors::TraineesController < ApplicationController
+class Supervisors::SupervisorsController < ApplicationController
   before_action :load_users, only: %i(edit update)
   before_action :load_course, only: %i(edit update)
   before_action :check_valid_date, only: %i(edit update)
+
+  def show; end
 
   def edit; end
 
@@ -11,10 +13,10 @@ class Supervisors::TraineesController < ApplicationController
       user_ids = lst_new_trainees.map{|item| item[:user_id].to_i}
       user_emails = User.user_emails user_ids
       if user_emails.length > 0
-        # bundle exec sidekiq -q default
         # MailWorker.perform_at(Time.zone.now + 10.second, "sendmail", user_emails)
         CoursesMailer.assign_to_course(@course, user_emails).deliver_now
       end
+
       flash[:success] = t "messages.save_success"
       redirect_to supervisors_courses_path
     else
@@ -26,12 +28,16 @@ class Supervisors::TraineesController < ApplicationController
   private
 
   def course_user_params
-    params.require(:course).permit :id, course_users_attributes:
-      [:id, :course_id, :user_id, :_destroy]
+    user_params = params.require(:course).permit :id, course_users_attributes:
+      [:id, :course_id, :user_id, :role, :_destroy]
+    user_params[:course_users_attributes].each do |x|
+      x[1][:role] = User.roles[:supervisor]
+    end
+    return user_params
   end
 
   def load_users
-    @users = User.trainees.newest
+    @users = User.supervisors.newest
   end
 
   def load_course

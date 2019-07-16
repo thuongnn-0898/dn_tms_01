@@ -62,4 +62,5 @@ class Supervisors::CoursesController < ApplicationController
   def load_subjects
     @subjects = Subject.newest
   end
+
 end

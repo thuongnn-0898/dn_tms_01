@@ -9,5 +9,8 @@ Rails.application.routes.draw do
     resources :users
     resources :trainees
     resources :courses
+    resources :supervisors
+    require "sidekiq/web"
+    mount Sidekiq::Web, at: "/sidekiq"
   end
 end

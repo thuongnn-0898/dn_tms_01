@@ -30,6 +30,9 @@ $(document).ready(function () {
         let gender = data.dataset.gender;
         let time = new Date().getTime()+''+data.value;
 
+        let role = `<input value="supervisor" type="hidden"
+          name="course[course_users_attributes][${time}][role]"
+          id="course_course_users_attributes_${time}_role">`;
         let option_user_id = `<input type="hidden" value="${data.value}" 
           name="course[course_users_attributes][${time}][user_id]" 
           id="course_course_users_attributes_${time}_user_id">`;
@@ -39,7 +42,7 @@ $(document).ready(function () {
         let option_remove = `<a class="remove_record remove-position" href="#">
           <i class="fa fa-trash"></i></a>`;
         let str_row = `<tr data-id="${data.value}" style="display: table-row">
-          <td>${option_user_id}<img class="img-circle avatar-size" 
+          <td>${role}${option_user_id}<img class="img-circle avatar-size" 
           src="${avatar}" alt="${fullname}"></td><td class="fullname-col">
           ${fullname}</td><td class="email-col">${email}</td>
           <td class="birthday-col">${birthday}</td>
@@ -87,11 +90,11 @@ $(document).ready(function () {
 
   $('.chk-all').change(function (event) {
     if(this.checked){
-    //  display: table-row
+      //  display: table-row
       $('.users tr[style="display: table-row"] .chk-user')
         .each(function (index, data) {
-        this.checked = true;
-      });
+          this.checked = true;
+        });
     }
     else{
       $('.users tr .chk-user').each(function (index, data) {

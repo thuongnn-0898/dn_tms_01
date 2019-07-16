@@ -1,8 +1,9 @@
+<%= stylesheet_link_tag "supervisors/course" %>
 <table border="1">
   <tr>
     <td></td>
     <td>
-      <%= image_tag @course.picture.url,alt: @course.name, class: "img-circle avatar-size" %>
+      <%= image_tag @course.picture.url, alt: @course.name, class: "img-circle avatar-size" %>
     </td>
   </tr>
   <tr>
@@ -19,11 +20,11 @@
   </tr>
   <tr>
     <td>Date Start</td>
-    <td><%= l @course.date_start, format: :default %></td>
+    <td><%= l @course.date_start, format: :long %></td>
   </tr>
   <tr>
     <td>Date End</td>
-    <td><%= l @course.date_end, format: :default %></td>
+    <td><%= l @course.date_end, format: :long %></td>
   </tr>
 </table>
 
@@ -48,22 +49,69 @@
       </thead>
       <tbody>
       <% @course.course_subjects.each_with_index do |data, index| %>
-      <tr>
-        <td><%= index+1 %></td>
-        <td><%= data.subject.name %></td>
-      </tr>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td><%= data.subject.name %></td>
+        </tr>
       <% end %>
       </tbody>
     </table>
   </div>
   <div id="menu2" class="tab-pane fade">
-    <% @course.trainees.each do |item| %>
-        <p>af </p>
-    <% end %>
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th><%= t "table.column.avatar" %></th>
+        <th><%= t "table.column.fullname" %></th>
+        <th><%= t "table.column.email" %></th>
+        <th><%= t "table.column.birthday" %></th>
+        <th><%= t "table.column.gender" %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @course.course_users.each do |item| %>
+        <% if item.trainee? %>
+          <tr>
+            <td>
+              <%= image_tag item.user.avatar.url, class: "img-circle avatar-size" %>
+            </td>
+            <td><%= item.user.email %></td>
+            <td><%= item.user.fullname %></td>
+            <td><%= l item.user.birthday, format: :default %></td>
+            <td class="gender-col"><i class="fa <%= display_gender item.user %>"></i></td>
+          </tr>
+        <% end %>
+      <% end %>
+      </tbody>
+    </table>
   </div>
   <div id="menu3" class="tab-pane fade">
-    <h3>Menu 2</h3>
-    <p>Some content in menu 2.</p>
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th><%= t "table.column.avatar" %></th>
+        <th><%= t "table.column.fullname" %></th>
+        <th><%= t "table.column.email" %></th>
+        <th><%= t "table.column.birthday" %></th>
+        <th><%= t "table.column.gender" %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @course.course_users.each do |item| %>
+        <% if item.supervisor? %>
+          <tr>
+            <td>
+              <%= image_tag item.user.avatar.url, class: "img-circle avatar-size" %>
+            </td>
+            <td><%= item.user.email %></td>
+            <td><%= item.user.fullname %></td>
+            <td><%= l item.user.birthday, format: :default %></td>
+            <td class="gender-col"><i class="fa <%= display_gender item.user %>"></i></td>
+          </tr>
+        <% end %>
+      <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
 

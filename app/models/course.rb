@@ -6,6 +6,7 @@ class Course < ApplicationRecord
   # Relationships
   has_many :course_users, dependent: :destroy
   has_many :course_subjects, dependent: :destroy
+  has_many :users, through: :course_users
 
   # Nested attribute
   accepts_nested_attributes_for :course_users, allow_destroy: true
@@ -25,7 +26,7 @@ class Course < ApplicationRecord
 
   # Custom validates
   validate do
-    check_dates_vaid
+    check_dates_valid
     check_number_of_course_subject
     check_duplicate_of_course_subject
   end
@@ -50,7 +51,7 @@ class Course < ApplicationRecord
 
   private
 
-  def check_dates_vaid
+  def check_dates_valid
     if date_start < Date.today
       errors.add(:date_start, :date_start_must_be_large_than_today)
     elsif date_end < date_start
