@@ -1,0 +1,34 @@
+<%= form_for [:supervisors, @subject] do |f| %>
+    <div class="image-edit">
+      <%= f.file_field :picture, class: "form-control",
+        accept: Settings.images_types.collect {|type| ".#{type},"} %>
+      <label for="course_picture"></label>
+    </div>
+    <div class="picture-preview">
+      <div id="picture-preview" style="background-image: url('<%= f.object.picture.url %>')">
+      </div>
+    </div>
+  <div class="col-md-12">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+    <%= display_error1 :name %>
+  </div>
+  <div class="col-md-12">
+    <%= f.label :description %>
+    <%= f.text_field :description, class: "form-control" %>
+    <%= display_error1 :description %>
+  </div>
+  <div class="col-md-12">
+    <%= link_to "More task", '', id: "sub-field", class: "btn btn-info prevent-load",
+  data: {field: sub_task_field(f), :reload => false } %>
+  </div>
+  <%= f.label :Taskname %>
+  <div class="col-md-12 task-more">
+    <%= f.fields_for :tasks do |ff| %>
+      <%= render "supervisors/subjects/task", f: ff %>
+    <% end %>
+  </div>
+  <div class="col-md-3 col-md-offset-4 form-group">
+    <%= f.submit class: "form-control btn btn-success" %>
+  </div>
+<% end %>

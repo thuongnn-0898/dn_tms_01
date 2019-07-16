@@ -1,0 +1,39 @@
+<% provide :title, t("page.course_list") %>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped verticalalign">
+      <h3><%= t "page.course_list" %></h3>
+      <div id="showmsg"></div>
+      <%= link_to fa_icon("plus", text: t("page.course_create")), new_supervisors_subject_path, data: { turbolinks: false } , class: "btn btn-success" %>
+      <thead>
+      <tr>
+        <th><%= t "table.column.picture" %></th>
+        <th><%= t "table.column.name" %></th>
+        <th><%= t "table.column.action" %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @subjects.each do |subject| %>
+        <tr id="data-row-id-<%= subject.id %>">
+          <td>
+            <%= link_to image_tag(subject.picture.url, alt: subject.name, data: { turbolinks: false },
+            class: "img-circle avatar-size"), edit_supervisors_subject_path(subject) %>
+          </td>
+          <td><%= link_to subject.name, edit_supervisors_subject_path(subject), data: { turbolinks: false } %></td>
+          <td>
+            <%= link_to edit_supervisors_subject_path(subject), data: { turbolinks: false }, class: "btn btn-warning" do %>
+              <i class="fa fa-edit"></i>
+            <% end %>
+            <button href="#myModal" class="btn btn-danger btn-load-modal"
+              data-id="<%= subject.id %>" data-toggle="modal">
+              <span class="fa fa-remove"></span>
+            </button>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <%= will_paginate @subjects %>
+  </div>
+</div>

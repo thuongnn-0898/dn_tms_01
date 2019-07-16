@@ -7,6 +7,13 @@ module CoursesHelper
       #{@course.errors[field].first}</span>"
   end
 
+  def display_error1 field, custom_field_name = nil
+    return unless @subject.errors[field].present?
+    name = custom_field_name ? custom_field_name : field.to_s.titlecase
+    raw "<span class=\"error_message\">  #{name}
+      #{@subject.errors[field].first}</span>"
+  end
+
   # Active course status
   def active_course_status
     @course.id ? false : true

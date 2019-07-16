@@ -1,10 +1,11 @@
 $(document).ready(function(){
+
   function message(msg, size ='small'){
     bootbox.alert({
       message: msg,
       size: size
     });
-  }
+  };
 
   function finish_subject(subj_user_id, msg){
     message('You\'re finished this subject. <br />Congratulation !!!');
@@ -13,38 +14,36 @@ $(document).ready(function(){
       $('div.vcenter#'+subj_user_id).find('.label-primary').removeClass('label-primary').addClass('label-danger').html('Finish');
       $('div.vcenter#'+subj_user_id).find('#btn-finish'+subj_user_id).remove();
     }, 1000);
-  }
+  };
 
   function waiting(){
     let html = '<div class="waiting"><span></span><span></span><span></span><span></span></div>';
     return html
-  }
+  };
 
-  $('.btn-load-modal').click(function(){
-    let id = $(this).attr('data-id');
-    $('#btn-delete').attr('data-id', id)
+  // $('.btn-load-modal').click(function(){
+  //   let id = $(this).attr('data-id');
+  //   $('#btn-delete').attr('data-id', id)
+  // });
 
-  });
-
-  $('#btn-delete').click(function () {
-    let id = $(this).attr('data-id');
-    let url = $(this).context.baseURI + '/' + id;
-    $.ajax({
-      method: 'DELETE',
-      dataType: 'json',
-      url,
-      success: function (data) {
-        $('#data-row-id-' + id).remove();
-        $('#myModal').modal('hide');
-        $('#showmsg').append('<div class="alert alert-'+ data.cls + '">'
-          +data.msg+'</div>');
-      },
-    });
-  });
+  // $('#btn-delete').click(function () {
+  //   let id = $(this).attr('data-id');
+  //   let url = $(this).context.baseURI + '/' + id;
+  //   $.ajax({
+  //     method: 'DELETE',
+  //     dataType: 'json',
+  //     url,
+  //     success: function (data) {
+  //       $('#data-row-id-' + id).remove();
+  //       $('#myModal').modal('hide');
+  //       $('#showmsg').append('<div class="alert alert-'+ data.cls + '">'
+  //         +data.msg+'</div>');
+  //     },
+  //   });
+  // });
 
 
 // view task by user
-
 
   $('.view-task').click(function(){
     const subj_user_id = $(this).attr('id');
@@ -125,7 +124,7 @@ $(document).ready(function(){
     }).fail(() => {
       message("Please try again later!");
     });
-  }, 3000);
+   }, 3000);
   });
 
 
@@ -158,3 +157,15 @@ $(document).ready(function(){
     });
   });
 });
+$(document).on('click', '#sub-field', function(e){
+  let field = $(this).data('field');
+  let new_id = new Date().getTime();
+  $('.task-more').append(field.replace(/idcheck/g, new_id));
+  e.preventDefault();
+});
+
+$(document).on('click', '.remove-btn', function(e) {
+  $(this).parent().remove();
+  e.preventDefault();
+});
+

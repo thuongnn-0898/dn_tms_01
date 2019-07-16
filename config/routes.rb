@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   namespace :supervisors do
     resources :users
     resources :courses, except: :show
+    resources :subjects
   end
 end

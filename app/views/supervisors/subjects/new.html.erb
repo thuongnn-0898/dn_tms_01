@@ -1,0 +1,10 @@
+<% provide :title, t("page.course_create") %>
+
+<div class="row">
+  <h1 class="text-center"><%= t("page.course_create") %></h1>
+  <div class="col-md-6 col-md-offset-3">
+    <%= render "supervisors/subjects/form" %>
+  </div>
+</div>
+
+<%= javascript_include_tag "ajax_helper" %>

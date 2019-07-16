@@ -54,6 +54,7 @@ en:
     detail_course: "Details coures"
   messages:
     save_success: "Save successfully!"
+    save_error: "Save failed!"
     update_success: "Update successfully!"
     destroy_success: "Delete successfully!"
     destroy_error: "Delete failed!"

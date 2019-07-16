@@ -28,4 +28,12 @@ module ApplicationHelper
   def finish_subj_user subject_user_id
     SubjectUser.find_by(id: subject_user_id).update_attribute(:status, 2)
   end
+
+  def sub_task_field form
+    sub_task = form.object.tasks.build
+    form.fields_for :tasks, sub_task,
+      child_index: "idcheck" do |builder|
+      render "supervisors/subjects/task", f: builder
+    end
+  end
 end
