@@ -15,7 +15,7 @@ class Supervisors::UsersController < ApplicationController
     @user = User.new user_params
     if @user.save
       flash[:success] = t "messages.save_success"
-      redirect_to users_path
+      redirect_to supervisors_users_path
     else
       render :new
     end
@@ -28,7 +28,7 @@ class Supervisors::UsersController < ApplicationController
   def update
     if @user.update_attributes user_params
       flash[:success] = t "messages.update_success"
-      redirect_to root_path
+      redirect_to supervisors_root_path
     else
       render :edit
     end
@@ -54,6 +54,6 @@ class Supervisors::UsersController < ApplicationController
     return if @user
 
     flash[:warning] = t "user.message.user_not_default"
-    redirect_to root_path unless @user
+    redirect_to supervisors_root_path unless @user
   end
 end

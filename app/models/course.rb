@@ -1,7 +1,7 @@
 class Course < ApplicationRecord
   # Enums
   enum status: {init: 0, start: 1, finish: 2}
-  enum duration_types: {hour: 0, day: 1, month: 2}
+  enum duration_type: {hour: 0, day: 1, month: 2}
 
   # Relationships
   has_many :course_users, dependent: :destroy
@@ -36,7 +36,7 @@ class Course < ApplicationRecord
   scope :newest, ->{order id: :desc}
 
   class << self
-    def duration_types_i18n
+    def duration_type_i18n
       Hash[
         Course.duration_types.map{|k| [I18n.t("course.duration_type.#{k}"), k]}
       ]

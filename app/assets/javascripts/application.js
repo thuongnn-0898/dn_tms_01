@@ -8,3 +8,4 @@
 //= require i18n/translations
 //= require select2
 //= require hide_alert.js
+//= require dataTables/jquery.dataTables

@@ -1,0 +1,23 @@
+.remove-position{
+  position: unset;
+}
+.gender-col{
+  font-size: 24px;
+  text-align: center;
+  .fa-male{
+    color: #ff75b6;
+  }
+  .fa-female{
+    color: #07c800;
+  }
+}
+.offset-left{
+  padding-left: 10px;
+}
+input.chk-all{
+  margin-left: 10px;
+}
+
+table .trainees-data-tables tr td{
+  vertical-align: middle !important;
+}

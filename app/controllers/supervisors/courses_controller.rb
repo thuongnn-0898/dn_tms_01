@@ -22,9 +22,7 @@ class Supervisors::CoursesController < ApplicationController
     end
   end
 
-  def edit
-    @course = Course.find_by id: params[:id]
-  end
+  def edit; end
 
   def update
     if @course.update_attributes course_params
