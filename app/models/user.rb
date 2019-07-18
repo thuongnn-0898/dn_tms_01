@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include UserHelper
+
   # Enums
   enum role: {trainee: 0, supervisor: 1}
   enum gender: {male: 1, female: 0}
@@ -18,6 +20,12 @@ class User < ApplicationRecord
     uniqueness: {case_sensitive: false}
   validates :password, length: {minimum: Settings.password_length_minimum},
     allow_nil: true
+  validates :birthday, presence: true
+
+  # Custom validates
+  validate do
+    birthday_must_smaller_x_year
+  end
 
   # Uploader
   mount_uploader :avatar, PictureUploader
@@ -39,5 +47,12 @@ class User < ApplicationRecord
     def gender_types_i18n
       Hash[User.gender.map{|k| [I18n.t("user.gender.#{k}"), k]}]
     end
+  end
+
+  private
+
+  def birthday_must_smaller_x_year
+    return if birthday.nil? || age(birthday) >= Settings.age_valid
+    errors.add(:birthday, :birthday_invalid)
   end
 end

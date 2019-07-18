@@ -69,9 +69,6 @@ en:
   ui_control_text_js:
     delete: "Delete"
     cancel: "Cancel"
-  date:
-    formats:
-      default: "%d-%m-%Y"
   helpers:
     label:
       user:
@@ -131,3 +128,9 @@ en:
             course_subjects:
               course_subjects_too_short: "Course should have at least %{count} Subject(s)"
               course_subjects_duplicate_subject: "Subject must be unique"
+            date_start:
+              date_start_must_be_large_than_today: "Date start must be equal or large than today"
+            date_end:
+              date_end_must_be_equal_large_than_date_start: "Date end must be large or equal than Date start"
+        user:
+          birthday_invalid: "Birthday invalid"

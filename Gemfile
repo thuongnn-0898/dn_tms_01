@@ -9,7 +9,6 @@ gem "bootstrap-will_paginate", "1.0.0"
 gem "carrierwave"
 gem "coffee-rails", "~> 4.2"
 gem "config"
-gem "faker", "1.9.4"
 gem "figaro"
 gem "font-awesome-rails"
 gem "i18n-js"
@@ -29,6 +28,8 @@ gem "will_paginate", "~> 3.1.0"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "factory_bot_rails"
+  gem "rspec-rails"
 end
 
 group :development do
@@ -39,9 +40,13 @@ group :development do
 end
 
 group :test do
-  gem "capybara", ">= 2.15"
+  gem "capybara"
   gem "chromedriver-helper"
+  gem "database_cleaner"
+  gem "faker", "1.9.4"
+  gem "launchy"
   gem "selenium-webdriver"
+  gem "shoulda-matchers"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
