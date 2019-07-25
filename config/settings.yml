@@ -14,3 +14,4 @@ avatar_default: "picture.png"
 duration_minimun: 1
 duration_maximum: 100
 images_types: ["jpg", "jpeg", "gif", "png"]
+age_valid: 17
