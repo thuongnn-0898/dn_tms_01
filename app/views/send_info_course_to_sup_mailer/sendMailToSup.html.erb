@@ -1,0 +1,10 @@
+<h1><%= t("mailer.hello", name: @name) %></h1>
+<h3>
+  <h1><%= t("mailer.info.title", title: @course.name) %></h1>
+</h3>
+<h4><%= t("mailer.info.expire", date: @course.date_end) %></h4>
+<h3><%= t("mailer.info.subjects", subject: @course.subjects.size) %></h3>
+<h3><%= t("mailer.info.status", subject: @course.status) %></h3>
+<p>
+  <%= @course.description %>
+</p>

@@ -150,3 +150,9 @@ en:
       message: "You invited a course, good luck to you"
     remove:
       message: "You was removed a course, see you later"
+    info:
+      subject: "Notification about course"
+      title: "This course : %{title} is about to expire"
+      expire: "Expire at : %{date}"
+      subjects: "Subjects : %{subject}"
+      status: "Status :"
