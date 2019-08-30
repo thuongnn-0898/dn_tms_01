@@ -38,7 +38,7 @@
                 <% if exists_in_course?(params[:id], student.id) %>
                 <span class="fa fa-check destroy" id="<%=  student.id %>"></span>
                 <% else %>
-                <%= check_box_tag "course_user[user_ids][]", student.id, false, class: "checkbox" %>
+                  <%= check_box_tag "course_user[user_ids][]", student.id, false, class: "checkbox" %>
                 <% end %>
               </td>
             </tr>
