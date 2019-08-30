@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_06_033924) do
+ActiveRecord::Schema.define(version: 2019_09_08_145900) do
 
   create_table "course_subjects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "course_id"
@@ -71,6 +71,14 @@ ActiveRecord::Schema.define(version: 2019_09_06_033924) do
     t.index ["subject_user_id", "task_id"], name: "index_progress_user_tasks_on_subject_user_id_and_task_id", unique: true
     t.index ["subject_user_id"], name: "index_progress_user_tasks_on_subject_user_id"
     t.index ["task_id"], name: "index_progress_user_tasks_on_task_id"
+  end
+
+  create_table "reports", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "subject_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

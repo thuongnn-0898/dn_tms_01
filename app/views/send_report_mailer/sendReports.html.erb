@@ -1,0 +1,6 @@
+<h2>Hello : <%= @name %></h2>
+<h3 style="text-align: center">List reports today</h3>
+<% @reports.each do |report| %>
+  <h3>Reporter: <%= report.fullname %> -- Title: <%= report.title %></h3>
+  <p style="margin-right: 15px">Content: <%= report.content %></p>
+<% end %>

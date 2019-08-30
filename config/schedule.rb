@@ -15,3 +15,7 @@ set :output, { error: "log/cron_error_log.log", standard: "log/cron_log.log"}
 every 1.month - 1.day do
   rake "mails_monthly:mails_monthly"
 end
+
+every 1.day, at: ["10:00 pm"] do
+  rake "reports_everyday:reports_everyday"
+end

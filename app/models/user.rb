@@ -8,6 +8,7 @@ class User < ApplicationRecord
   # Relationships
   has_many :course_users, dependent: :destroy
   has_many :courses, through: :course_users
+  has_many :reports, dependent: :destroy
 
   # Validates
   validates :fullname, presence: true,

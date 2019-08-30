@@ -1,0 +1,7 @@
+<h4>Hello : <%= @name %></h4>
+<p>List reports today</p>
+<% @reports.each do |report| %>
+  <h3>Title: <%= report.title %></h3>
+  <p><%= report.content %></p>
+  <h4><%= report.fullname %></h4>
+<% end %>
