@@ -1,0 +1,53 @@
+  <div class="table-wrapper">
+    <div class="table-title">
+      <div class="row">
+        <div class="col-sm-6">
+          <h2><%= t "page.subject_list" %></h2>
+        </div>
+        <div class="col-sm-6">
+<<<<<<< HEAD
+          <%= link_to new_supervisors_subject_path, class: "btn btn-success" do %>
+=======
+          <%= link_to new_supervisors_subject_path, class: "btn btn-success float-right" do %>
+>>>>>>> edit template
+            <i class="material-icons">&#xE147;</i>
+            <span><%= t "create" %></span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>
+            <span class="custom-checkbox">
+              #
+            </span>
+          </th>
+<<<<<<< HEAD
+          <th>Logo</th>
+          <th>Name</th>
+          <th>Desciption</th>
+          <th>Total task</th>
+          <th>Actions</th>
+=======
+          <th><%= t "table.column.picture" %></th>
+          <th><%= t "table.column.name" %></th>
+          <th><%= t "table.column.description" %></th>
+          <th><%= t "table.column.total_task" %></th>
+          <th><%= t "table.column.action" %></th>
+>>>>>>> edit template
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: "supervisors/subjects/subject", collection: @subjects %>
+      </tbody>
+    </table>
+    <div class="clearfix">
+<<<<<<< HEAD
+      <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
+=======
+>>>>>>> edit template
+      <%= will_paginate @subjects %>
+    </div>
+  </div>

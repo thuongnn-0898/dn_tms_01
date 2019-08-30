@@ -1,4 +1,4 @@
-require "rails_helper"
+require "spec_helper"
 
 RSpec.shared_examples "when empty" do |field|
   it do
@@ -39,8 +39,7 @@ RSpec.describe Course, type: :model do
     end
 
     context "when the name is too long" do
-      before{course.name = Faker::Lorem.paragraphs Settings.
-        name_length_maximum * 2}
+      before{course.name = Faker::name * 1000}
       it_behaves_like "too long", :name, Settings.name_length_maximum
     end
   end
@@ -56,8 +55,7 @@ RSpec.describe Course, type: :model do
     end
 
     context "when the description is too long" do
-      before {course.description = Faker::Lorem.paragraphs Settings.
-        content_text_max_length * 2}
+      before {course.description = Faker::name * 1000}
       it_behaves_like "too long", :description, Settings.content_text_max_length
     end
   end

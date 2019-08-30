@@ -9,5 +9,7 @@ Rails.application.routes.draw do
     resources :users
     resources :trainees
     resources :courses
+    resources :subjects
+    resources :tasks, only: :destroy
   end
 end

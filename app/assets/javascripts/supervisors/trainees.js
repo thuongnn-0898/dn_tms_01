@@ -30,16 +30,16 @@ $(document).ready(function () {
         let gender = data.dataset.gender;
         let time = new Date().getTime();
 
-        let option_user_id = `<input type="hidden" value="${data.value}" 
-          name="course[course_users_attributes][${time}][user_id]" 
+        let option_user_id = `<input type="hidden" value="${data.value}"
+          name="course[course_users_attributes][${time}][user_id]"
           id="course_course_users_attributes_${time}_user_id">`;
-        let option_destroy = `<input type="hidden" value="false" 
-          name="course[course_users_attributes][${time}][_destroy]" 
+        let option_destroy = `<input type="hidden" value="false"
+          name="course[course_users_attributes][${time}][_destroy]"
           id="course_course_users_attributes_${time}__destroy">`;
         let option_remove = `<a class="remove_record remove-position" href="#">
           <i class="fa fa-trash"></i></a>`;
         let str_row = `<tr data-id="${data.value}" style="display: table-row">
-          <td>${option_user_id}<img class="img-circle avatar-size" 
+          <td>${option_user_id}<img class="img-circle avatar-size"
           src="${avatar}" alt="${fullname}"></td><td class="fullname-col">
           ${fullname}</td><td class="email-col">${email}</td>
           <td class="birthday-col">${birthday}</td>
@@ -51,7 +51,7 @@ $(document).ready(function () {
 
   $('form').on('click', '.remove_record', function (event) {
     $(this).siblings('input[type=hidden]').val('1');
-    $(this).closest('tr').hide();
+    $(this).closest('tr').remove();
     return event.preventDefault();
   });
 

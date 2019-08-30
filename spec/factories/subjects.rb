@@ -1,6 +1,8 @@
 FactoryBot.define do
-  factory :subject do |s|
-    s.name {Faker::Name.name_with_middle}
-    s.description {Faker::Lorem.paragraph}
+  factory :subject do |f|
+    f.name {Faker::Name.name_with_middle}
+    f.description {Faker::Lorem.paragraph}
   end
 end
+
+
