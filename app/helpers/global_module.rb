@@ -6,6 +6,6 @@ module GlobalModule
     scope :studying, ->{where status: studying}
     scope :finish, ->{where status: finish}
     scope :orderStatus, ->{order(status: :desc)}
-    scope :byCourseId, ->(course_id){where course_id: course_id}
+    scope :by_course_id, ->(course_id){where course_id: course_id}
   end
 end

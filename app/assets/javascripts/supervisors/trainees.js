@@ -29,7 +29,11 @@ $(document).ready(function () {
       dataType: 'json',
       url,
       success: function(result){
-        obj.replaceWith(html);
+        if (result.status == "success") {
+          obj.replaceWith(html);
+        }else{
+          alert(result.message);
+        }
       }
     })
   });

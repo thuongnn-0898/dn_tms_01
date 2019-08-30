@@ -33,10 +33,10 @@ class Supervisors::SubjectsController < Supervisors::SupervisorsController
   end
 
   def destroy
-    flash[:warning] = if @subject.destroy
-      t "messages.destroy_success"
+    if @subject.destroy
+      flash[:success] = t "messages.destroy_success"
     else
-      t "messages.destroy_error"
+      flash[:warning] = t "messages.destroy_error"
     end
     redirect_to supervisors_subjects_path
   end
