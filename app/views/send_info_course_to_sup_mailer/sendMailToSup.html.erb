@@ -1,0 +1,10 @@
+<h1>Hello <%= @name %></h1>
+<h3>
+  This course : <%= @course.name %> is about to expire
+</h3>
+<h4>Expire at : <%= @course.date_end %></h4>
+<h3><b>Subjects:</b> <%= @course.subjects.count %></h3>
+<h3><b>Status:</b> <%= @course.status %> </h3>
+<p>
+  <%= @course.description %>
+</p>

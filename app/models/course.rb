@@ -7,6 +7,7 @@ class Course < ApplicationRecord
   has_many :course_users, dependent: :destroy
   has_many :course_subjects, dependent: :destroy
   has_many :subjects, through: :course_subjects
+  has_many :users, through: :course_users
   # Nested attribute
   accepts_nested_attributes_for :course_users, allow_destroy: true
   accepts_nested_attributes_for :course_subjects, allow_destroy: true
@@ -22,10 +23,12 @@ class Course < ApplicationRecord
       greater_than_or_equal_to: Settings.duration_minimun,
       less_than_or_equal_to: Settings.duration_maximum
     }
+  validates :date_start, presence: true, allow_nil: true, on: :update
   validates :date_start, presence: true
   validates :date_end, presence: true
 
-  before_validation :check_start_valid, :check_end_valid, on: [:create, :update]
+  before_validation :check_start_valid, on: [:create]
+  before_validation :check_end_valid, on: [:create, :update]
 
   validate do
     check_number_of_course_subject
@@ -74,13 +77,13 @@ class Course < ApplicationRecord
 
   def check_start_valid
     return if date_start.nil? || date_end.nil?
-    return if date_start >= Date.today && date_start <= date_end
+    return if date_start.to_date >= Date.today && date_start <= date_end
     errors.add(:date_start, :date_start_must_be_large_than_today)
   end
 
   def check_end_valid
     return if date_start.nil? || date_end.nil?
-    return if date_end >= date_start
+    return if date_end.to_date >= date_start
     errors.add(:date_end, :date_end_must_be_equal_large_than_date_start)
   end
 end

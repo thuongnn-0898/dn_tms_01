@@ -15,6 +15,9 @@ class Supervisors::CoursesController < Supervisors::SupervisorsController
   def create
     @course = Course.new course_params
     if @course.save
+      add_supervisor_into_course_just_created @course.id
+      date = count_date_send(@course.date_start, @course.date_end)
+      SendInfoCourseToSupJob.set(wait: date.days).perform_later(@course.id)
       flash[:success] = t "messages.save_success"
       redirect_to supervisors_courses_path
     else
@@ -59,5 +62,14 @@ class Supervisors::CoursesController < Supervisors::SupervisorsController
 
   def load_subjects
     @subjects = Subject.newest
+  end
+
+  def add_supervisor_into_course_just_created course_id
+    CourseUser.create(course_id: course_id, user_id: current_user.id, role: "supervisor")
+  end
+
+  def count_date_send date_start, date_end
+    result = date_end.to_date - date_start.to_date
+    return result.to_s.split("/")[0].to_i - 2
   end
 end

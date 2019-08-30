@@ -13,4 +13,8 @@ module Supervisors::TraineesHelper
     check = CourseUser.byCourse_User(course_id, user_id).size
     check.positive?
   end
+
+  def infomation_this_course_user
+
+  end
 end

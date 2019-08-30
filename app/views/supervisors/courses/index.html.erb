@@ -38,11 +38,13 @@
             </span>
           </td>
           <td>
-          <%= link_to edit_supervisors_course_path(course), class: "btn btn-warning" do %>
-            <i class="fa fa-edit"></i>
-          <% end %>
-          <%= link_to supervisors_assign_path(course), class: "btn btn-warning" do %>
-            <i class="fa fa-users"></i>
+          <% if !course.finish? %>
+            <%= link_to edit_supervisors_course_path(course), class: "btn btn-warning" do %>
+              <i class="fa fa-edit"></i>
+            <% end %>
+            <%= link_to supervisors_assign_path(course), class: "btn btn-warning" do %>
+              <i class="fa fa-users"></i>
+            <% end %>
           <% end %>
             <button href="#myModal" class="btn btn-danger btn-load-modal"
               data-id="<%= course.id %>" data-toggle="modal">
