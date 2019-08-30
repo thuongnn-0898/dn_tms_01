@@ -32,6 +32,7 @@ en:
       gender: "Gender"
       description: "Description"
       total_task: "Total tasks"
+      check_all: "Check all"
   page:
     home: "Home"
     courses: "All Course"

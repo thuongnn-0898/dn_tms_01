@@ -479,3 +479,10 @@ body {
 
     cursor: not-allowed;
   }
+#vertical > th, td{
+  vertical-align: inherit !important;
+}
+.avatar-mini{
+  width: 75px;
+  height: 75px;
+}

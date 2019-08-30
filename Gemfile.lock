@@ -33,6 +33,8 @@ GEM
       activemodel (= 5.2.3)
       activesupport (= 5.2.3)
       arel (>= 9.0)
+    activerecord-import (1.0.2)
+      activerecord (>= 3.2)
     activestorage (5.2.3)
       actionpack (= 5.2.3)
       activerecord (= 5.2.3)
@@ -42,8 +44,8 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    addressable (2.6.0)
-      public_suffix (>= 2.0.2, < 4.0)
+    addressable (2.7.0)
+      public_suffix (>= 2.0.2, < 5.0)
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
@@ -97,6 +99,11 @@ GEM
     crass (1.0.4)
     database_cleaner (1.7.0)
     deep_merge (1.2.1)
+    delayed_job (4.1.8)
+      activesupport (>= 3.0, < 6.1)
+    delayed_job_active_record (4.1.4)
+      activerecord (>= 3.0, < 6.1)
+      delayed_job (>= 3.0, < 5)
     diff-lcs (1.3)
     dry-configurable (0.8.3)
       concurrent-ruby (~> 1.0)
@@ -194,7 +201,7 @@ GEM
       ast (~> 2.4.0)
     popper_js (1.14.5)
     powerpack (0.1.2)
-    public_suffix (3.1.1)
+    public_suffix (4.0.1)
     puma (3.12.1)
     rack (2.0.7)
     rack-test (1.1.0)
@@ -232,6 +239,25 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    redis (4.1.2)
+    redis-actionpack (5.1.0)
+      actionpack (>= 4.0, < 7)
+      redis-rack (>= 1, < 3)
+      redis-store (>= 1.1.0, < 2)
+    redis-activesupport (5.2.0)
+      activesupport (>= 3, < 7)
+      redis-store (>= 1.3, < 2)
+    redis-namespace (1.6.0)
+      redis (>= 3.0.4)
+    redis-rack (2.0.5)
+      rack (>= 1.5, < 3)
+      redis-store (>= 1.2, < 2)
+    redis-rails (5.0.2)
+      redis-actionpack (>= 5.0, < 6)
+      redis-activesupport (>= 5.0, < 6)
+      redis-store (>= 1.2, < 2)
+    redis-store (1.6.0)
+      redis (>= 2.2, < 5)
     regexp_parser (1.6.0)
     rspec-core (3.8.2)
       rspec-support (~> 3.8.0)
@@ -326,6 +352,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-import
   bcrypt
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.3.1)
@@ -337,6 +364,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   config
   database_cleaner
+  delayed_job_active_record
   factory_bot_rails
   faker
   figaro
@@ -353,6 +381,8 @@ DEPENDENCIES
   puma (~> 3.11)
   rails (~> 5.2.3)
   rails-controller-testing
+  redis-namespace
+  redis-rails
   rspec-rails (~> 3.7)
   rubocop (~> 0.54.0)
   sass-rails (~> 5.0)
