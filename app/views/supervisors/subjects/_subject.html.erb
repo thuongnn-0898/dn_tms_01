@@ -1,0 +1,18 @@
+<tr>
+  <td>
+    <%= subject.id %>
+  </td>
+  <td><%= link_to image_tag(subject.picture.url, alt: subject.name,
+        class: "rounded-circle avatar-size") %></td>
+  <td><%= subject.name %></td>
+  <td><%= subject.description %></td>
+  <td><%= subject.tasks.count %></td>
+  <td>
+    <%= link_to edit_supervisors_subject_path(subject) do %>
+      <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+    <% end %>
+      <%= link_to supervisors_subject_path(subject), method: "delete" do %>
+      <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+      <% end %>
+  </td>
+</tr>

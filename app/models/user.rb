@@ -41,11 +41,11 @@ class User < ApplicationRecord
 
   class << self
     def role_types_i18n
-      Hash[User.role.map{|k| [I18n.t("user.role.#{k}"), k]}]
+      Hash[User.roles.map{|k, v| [I18n.t("user.role.#{k}"), k]}]
     end
 
-    def gender_types_i18n
-      Hash[User.gender.map{|k| [I18n.t("user.gender.#{k}"), k]}]
+    def gender_types
+      Hash[User.genders.map{|k, v| [I18n.t("user.gender.#{k}"), k]}]
     end
   end
 

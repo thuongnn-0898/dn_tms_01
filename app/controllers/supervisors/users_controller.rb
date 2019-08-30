@@ -1,4 +1,4 @@
-class Supervisors::UsersController < ApplicationController
+class Supervisors::UsersController < Supervisors::SupervisorsController
   before_action :load_user, only: %i(edit update destroy)
   before_action :is_supervisor?
 
@@ -28,7 +28,7 @@ class Supervisors::UsersController < ApplicationController
   def update
     if @user.update_attributes user_params
       flash[:success] = t "messages.update_success"
-      redirect_to supervisors_root_path
+      redirect_to supervisors_users_path
     else
       render :edit
     end
