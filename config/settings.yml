@@ -1,8 +1,10 @@
 fullname_length_maximum: 140
 name_length_maximum: 150
+name_length_minimum: 10
 email_length_minimum: 10
 email_length_maximum: 250
 content_text_max_length: 500
+content_text_min_length: 100
 password_length_minimum: 6
 minimagick_width: 300
 minimagick_height: 300

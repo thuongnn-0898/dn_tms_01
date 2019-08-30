@@ -25,11 +25,14 @@ gem "select2-rails"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
 gem "will_paginate", "~> 3.1.0"
+gem "faker"
+gem "material_icons"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "factory_bot_rails"
-  gem "rspec-rails"
+  gem "rspec-rails", "~> 3.7"
+  gem "rails-controller-testing"
 end
 
 group :development do
@@ -43,7 +46,6 @@ group :test do
   gem "capybara"
   gem "chromedriver-helper"
   gem "database_cleaner"
-  gem "faker", "1.9.4"
   gem "launchy"
   gem "selenium-webdriver"
   gem "shoulda-matchers"

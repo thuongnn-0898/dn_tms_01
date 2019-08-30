@@ -12,7 +12,7 @@ class Supervisors::TraineesController < ApplicationController
       redirect_to supervisors_courses_path
     else
       flash[:danger] = t "messages.save_unsuccess"
-      render :edit
+      redirect_to request.referer
     end
   end
 

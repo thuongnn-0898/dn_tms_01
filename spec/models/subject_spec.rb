@@ -26,8 +26,7 @@ RSpec.describe Subject, type: :model do
     end
 
     context "when the name is too long" do
-      before {sub.name = Faker::Lorem.paragraphs Settings.
-        content_text_max_length}
+      before {sub.name = Faker::name * 1000}
       it do
         sub.save
         expect(sub.errors[:name].first)

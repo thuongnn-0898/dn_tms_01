@@ -1,4 +1,5 @@
 <%= form_for [:supervisors, @course] do |f| %>
+  <%= render "layouts/shared/error_message", object: f.object %>
   <div class="image-upload col-md-2 col-md-offset-4">
     <div class="image-edit">
       <%= f.file_field :picture, class: "form-control",
@@ -26,6 +27,16 @@
     <%= f.text_field :duration, class: "form-control", type: "number" %>
     <%= display_error :duration %>
   </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <%= f.label :date_start %>
+        <%= f.date_field :date_start, class: "form-control" %>
+      </div>
+      <div class="form-group col-md-6">
+        <%= f.label :date_end %>
+        <%= f.date_field :date_end, class: "form-control" %>
+      </div>
+    </div>
   <div class="col-md-12">
     <%= f.label :status %>
     <%= f.select :status, Course.status_i18n, {},
