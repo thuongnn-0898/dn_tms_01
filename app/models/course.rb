@@ -41,14 +41,14 @@ class Course < ApplicationRecord
   class << self
     def duration_type_i18n
       Hash[
-        Course.duration_types.map do |k, v|
+        Course.duration_types.map do |k, _v|
           [I18n.t("course.duration_type.#{k}"), k]
         end
       ]
     end
 
     def status_i18n
-      Hash[Course.statuses.map{|k, v| [I18n.t("course.status.#{k}"), k]}]
+      Hash[Course.statuses.map{|k, _v| [I18n.t("course.status.#{k}"), k]}]
     end
   end
 

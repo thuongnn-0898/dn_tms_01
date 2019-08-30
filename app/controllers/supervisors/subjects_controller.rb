@@ -34,9 +34,9 @@ class Supervisors::SubjectsController < Supervisors::SupervisorsController
 
   def destroy
     flash[:warning] = if @subject.destroy
-      t "messages.destroy_success"
-    else
-      t "messages.destroy_error"
+                        t "messages.destroy_success"
+                      else
+                        t "messages.destroy_error"
     end
     redirect_to supervisors_subjects_path
   end

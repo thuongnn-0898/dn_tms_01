@@ -139,3 +139,13 @@ en:
               date_end_must_be_equal_large_than_date_start: "Date end must be large or equal than Date start"
         user:
           birthday_invalid: "Birthday invalid"
+  mailer:
+    title:
+      assign: "Assign members"
+    course: "Course name"
+    subject: "Subjects"
+    status: "Status"
+    assign:
+      message: "You invited a course, good luck to you"
+    remove:
+      message: "You was removed a course, see you later"

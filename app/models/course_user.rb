@@ -9,5 +9,6 @@ class CourseUser < ApplicationRecord
   has_many :subjects, through: :subject_users
 
   scope :byUser, ->(user_id){where user_id: user_id}
-  scope :byCourse_User, ->(course_id, user_id){byCourseId(course_id).byUser(user_id)}
+  scope :byCourse_User, ->(course_id, user_id){byCourseId(course_id).
+    byUser(user_id)}
 end

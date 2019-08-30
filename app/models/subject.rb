@@ -11,7 +11,7 @@ class Subject < ApplicationRecord
   # Validates
   validates :name, presence: true,
     length: {maximum: Settings.name_length_maximum,
-      minimum: Settings.name_length_minimum}
+             minimum: Settings.name_length_minimum}
   validates :description, presence: true,
     length: {maximum: Settings.content_text_max_length}
 
