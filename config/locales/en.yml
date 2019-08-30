@@ -30,6 +30,8 @@ en:
       role: "Role"
       birthday: "Birthday"
       gender: "Gender"
+      description: "Description"
+      total_task: "Total tasks"
   page:
     home: "Home"
     courses: "All Course"
@@ -43,6 +45,7 @@ en:
     user_edit: "Edit an User"
     course_edit: "Edit a Course"
     assign_trainee: "Assign Trainee"
+    update_subject: "Update subject"
     subject_edit: "Edit an Subject"
     User_list: "User List"
     task_list: "Task List"
@@ -63,6 +66,7 @@ en:
     no_picture: "No Picture"
     delete_msg: "Do you really want to delete this records? This process cannot be undone."
     course_not_found: "This Course doesn't exists"
+    not_found: "Not found"
     error:
       one: "The form contains %{count} error."
       other: "The form contains %{count} errors."

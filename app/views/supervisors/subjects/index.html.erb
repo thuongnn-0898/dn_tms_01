@@ -1,0 +1,37 @@
+  <div class="table-wrapper">
+    <div class="table-title">
+      <div class="row">
+        <div class="col-sm-6">
+          <h2><%= t "page.subject_list" %></h2>
+        </div>
+        <div class="col-sm-6">
+          <%= link_to new_supervisors_subject_path, class: "btn btn-success" do %>
+            <i class="material-icons">&#xE147;</i>
+            <span><%= t "create" %></span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>
+            <span class="custom-checkbox">
+              #
+            </span>
+          </th>
+          <th><%= t "table.column.picture" %></th>
+          <th><%= t "table.column.name" %></th>
+          <th><%= t "table.column.description" %></th>
+          <th><%= t "table.column.total_task" %></th>
+          <th><%= t "table.column.action" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: "supervisors/subjects/subject", collection: @subjects %>
+      </tbody>
+    </table>
+    <div class="clearfix">
+      <%= will_paginate @subjects %>
+    </div>
+  </div>

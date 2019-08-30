@@ -1,4 +1,4 @@
-class Supervisors::TraineesController < ApplicationController
+class Supervisors::TraineesController < Supervisors::SupervisorsController
   before_action :load_users, only: %i(edit update)
   before_action :load_course, only: %i(edit update)
 
@@ -12,7 +12,7 @@ class Supervisors::TraineesController < ApplicationController
       redirect_to supervisors_courses_path
     else
       flash[:danger] = t "messages.save_unsuccess"
-      render :edit
+      redirect_to request.referer
     end
   end
 
