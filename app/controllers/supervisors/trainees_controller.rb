@@ -2,6 +2,7 @@ class Supervisors::TraineesController < Supervisors::SupervisorsController
   before_action :load_course_user, only: :destroy
 
   def new
+    @supervisors_course = CourseUser.byCourseId(params[:id]).supervisors
     @users = User.trainees.newest.paginate page: params[:page],
       per_page: Settings.per_page_default
   end
@@ -63,7 +64,7 @@ class Supervisors::TraineesController < Supervisors::SupervisorsController
     course_user_prams["user_ids"].each do |user_id|
       @data << {user_id: user_id, course_id: course_user_prams["course_id"]}
     end
-    return if @data.size > 0
+    return_size @data
   end
 
   def list_emails
@@ -71,6 +72,12 @@ class Supervisors::TraineesController < Supervisors::SupervisorsController
     course_user_data.each do |id|
       @emails << User.byId(id[:user_id]).pluck(:email, :fullname)[0]
     end
-    return if @emails.size > 0
+    return_size @emails
+  end
+
+  def return_size obj
+    return obj if obj.size.positive?
+    flash[:danger] = t "messages.destroy_error"
+    redirect_to request.referrer
   end
 end

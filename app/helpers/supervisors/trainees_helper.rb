@@ -14,7 +14,7 @@ module Supervisors::TraineesHelper
     check.positive?
   end
 
-  def infomation_this_course_user
-
+  def infomation_this_course_user id
+    return Course.find_by(id: id)
   end
 end
