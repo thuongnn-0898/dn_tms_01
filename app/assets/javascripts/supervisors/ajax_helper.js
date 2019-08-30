@@ -1,4 +1,3 @@
-
 $('.btn-load-modal').click(function(){
   let id = $(this).attr('data-id');
   $('#btn-delete').attr('data-id', id)
