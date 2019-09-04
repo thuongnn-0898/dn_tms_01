@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     resources :users
     resources :trainees
     resources :courses
+    resources :subjects
   end
 end
