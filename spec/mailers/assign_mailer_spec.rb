@@ -1,4 +1,5 @@
 require "rails_helper"
+
 include ActiveJob::TestHelper
 ActiveJob::Base.queue_adapter = :test
 
@@ -35,4 +36,3 @@ RSpec.describe AssignMailer, type: :mailer do
     expect(mail.to[0]).to eq user.email
   end
 end
-
