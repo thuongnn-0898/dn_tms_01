@@ -19,4 +19,13 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
   config.active_record.dump_schema_after_migration = false
+  config.cache_store = :redis_store, {
+    host: "localhost",
+    port: 6379,
+    db: 0,
+    password: "thuong",
+    namespace: "app3_sidekiq_#{Rails.env}"
+    }, {
+      expires_in: 90.minutes
+    }
 end
