@@ -2,8 +2,8 @@ class Supervisors::TraineesController < Supervisors::SupervisorsController
   before_action :load_course_user, only: :destroy
 
   def new
-    @supervisors_course = CourseUser.byCourseId(params[:id]).supervisors
-    @users = User.trainees.newest.paginate page: params[:page],
+    @supervisors_course = CourseUser.byCourseId(params[:id]).supervisor
+    @users = User.trainee.newest.paginate page: params[:page],
       per_page: Settings.per_page_default
   end
 

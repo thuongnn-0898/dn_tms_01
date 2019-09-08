@@ -9,6 +9,7 @@ class CourseUser < ApplicationRecord
   has_many :subjects, through: :subject_users
 
   delegate :fullname, :email, to: :user
+  delegate :name, to: :course
 
   scope :byUser, ->(user_id){where user_id: user_id}
   scope :byCourse_User, ->(course_id, user_id){byCourseId(course_id).

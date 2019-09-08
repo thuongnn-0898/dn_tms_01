@@ -15,6 +15,6 @@ module Supervisors::TraineesHelper
   end
 
   def infomation_this_course_user id
-    return Course.find_by(id: id)
+    return Course.find_by id: id
   end
 end

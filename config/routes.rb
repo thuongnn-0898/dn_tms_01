@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   get "/home", to: "homes#index"
+  resources :course_users
 
   namespace :supervisors do
     resources :users

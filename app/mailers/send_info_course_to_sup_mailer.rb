@@ -1,7 +1,7 @@
 class SendInfoCourseToSupMailer < ApplicationMailer
 
   def self.send_mail course_id
-    supervisors = User.supervisors.pluck(:email, :fullname)
+    supervisors = User.supervisor.pluck(:email, :fullname)
     course = Course.find(course_id)
     supervisors.each do |email|
       sendMailToSup(email[0], course, email[1]).deliver
