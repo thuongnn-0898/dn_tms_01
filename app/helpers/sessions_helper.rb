@@ -21,13 +21,13 @@ module SessionsHelper
   end
 
   def is_trainee?
-    return if current_user.trainee?
-    redirect_to supervisors_users_path
+    return if current_user.present? && current_user.trainee?
+    redirect_to login_path
   end
 
   def is_supervisor?
-    return if current_user.supervisor?
-    redirect_to home_path
+    return if current_user.present? && current_user.supervisor?
+    redirect_to login_path
   end
 
   def log_out

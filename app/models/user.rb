@@ -38,6 +38,7 @@ class User < ApplicationRecord
   scope :order_role, ->{order role: :desc}
   scope :trainees, ->{where role: User.roles[:trainee]}
   scope :supervisors, ->{where role: User.roles[:supervisor]}
+  scope :byId, ->(id){where id: id}
 
   class << self
     def role_types_i18n

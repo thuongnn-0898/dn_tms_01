@@ -6,7 +6,7 @@ class Course < ApplicationRecord
   # Relationships
   has_many :course_users, dependent: :destroy
   has_many :course_subjects, dependent: :destroy
-
+  has_many :subjects, through: :course_subjects
   # Nested attribute
   accepts_nested_attributes_for :course_users, allow_destroy: true
   accepts_nested_attributes_for :course_subjects, allow_destroy: true

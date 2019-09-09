@@ -7,4 +7,7 @@ class CourseUser < ApplicationRecord
   belongs_to :course
   has_many :subject_users, dependent: :destroy
   has_many :subjects, through: :subject_users
+
+  scope :byUser, ->(user_id){where user_id: user_id}
+  scope :byCourse_User, ->(course_id, user_id){byCourseId(course_id).byUser(user_id)}
 end
