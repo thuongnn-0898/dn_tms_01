@@ -8,6 +8,7 @@ class CourseUser < ApplicationRecord
   has_many :subject_users, dependent: :destroy
   has_many :subjects, through: :subject_users
 
-  scope :byUser, ->(user_id){where user_id: user_id}
-  scope :byCourse_User, ->(course_id, user_id){byCourseId(course_id).byUser(user_id)}
+  scope :by_user, ->(user_id){where user_id: user_id}
+  scope :by_course_user, ->(course_id, user_id){by_course_id(course_id).
+    by_user(user_id)}
 end
